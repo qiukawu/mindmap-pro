@@ -1,0 +1,139 @@
+/* =========================
+   MindFlow Pro 样式表
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Noto Sans SC', 'Segoe UI', Roboto, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+}
+
+/* ============ 工具栏 ============ */
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #fff;
+    border-bottom: 1px solid #e8eaed;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    flex-wrap: wrap;
+}
+
+.toolbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    padding-right: 8px;
+    border-right: 1px solid #e8eaed;
+}
+
+.toolbar-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border: 1px solid #e8eaed;
+    background: #f8f9fa;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.toolbar-btn:hover:not(:disabled) {
+    background: #e8eaed;
+}
+
+.toolbar-btn.primary {
+    background: #1f7ef1;
+    color: white;
+    border-color: #1f7ef1;
+}
+
+.toolbar-select {
+    padding: 6px 8px;
+    border: 1px solid #e8eaed;
+    border-radius: 4px;
+    background: white;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* ============ 主容器 ============ */
+#app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.canvas-wrapper {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: white;
+}
+
+#canvas-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* ============ 节点样式 ============ */
+.node {
+    position: absolute;
+    min-width: 100px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: white;
+    border: 2px solid #2c3e50;
+    cursor: move;
+    user-select: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.node:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.node.selected {
+    border-color: #1f7ef1;
+    background: #f0f7ff;
+    box-shadow: 0 0 0 3px rgba(31, 126, 241, 0.1);
+}
+
+.node-text {
+    font-size: 14px;
+    color: #333;
+    word-wrap: break-word;
+    outline: none;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width: 768px) {
+    .toolbar-label {
+        display: none;
+    }
+    
+    .toolbar {
+        gap: 4px;
+        padding: 4px 8px;
+    }
+}
