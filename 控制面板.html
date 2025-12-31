@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindFlow Pro - 控制面板</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .status {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .status h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .status-item:last-child {
+            border-bottom: none;
+        }
+        
+        .status-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .status-ok {
+            background: #27ae60;
+        }
+        
+        .status-warn {
+            background: #f39c12;
+        }
+        
+        .status-info {
+            background: #3498db;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        .code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            margin: 10px 0;
+        }
+        
+        .links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- 标题 -->
+        <div class="header">
+            <h1>🎛️ MindFlow Pro - 控制面板</h1>
+            <p>快速访问应用、文档和工具</p>
+        </div>
+        
+        <!-- 主要操作 -->
+        <div class="grid">
+            <!-- 打开应用 -->
+            <div class="card">
+                <h3>📂 打开应用</h3>
+                <p>启动MindFlow Pro思维导图应用，开始创建你的导图</p>
+                <a href="mindmap.htm" class="btn">打开应用</a>
+            </div>
+            
+            <!-- 查看主题 -->
+            <div class="card">
+                <h3>🎨 主题预览</h3>
+                <p>查看所有5个精选主题的视觉效果</p>
+                <a href="THEME_PREVIEW.html" class="btn">查看主题</a>
+            </div>
+            
+            <!-- 查看文档 -->
+            <div class="card">
+                <h3>📖 完整说明</h3>
+                <p>详细的使用指南、FAQ和技术细节</p>
+                <a href="README.html" class="btn">查看说明</a>
+            </div>
+        </div>
+        
+        <!-- 系统状态 -->
+        <div class="status">
+            <h3>✅ 系统状态</h3>
+            <div class="status-item">
+                <div class="status-icon status-ok">✓</div>
+                <div>
+                    <strong>应用文件</strong><br>
+                    <small>mindmap.htm - 就绪</small>
+                </div>
+            </div>
+            <div class="status-item">
+                <div class="status-icon status-ok">✓</div>
+                <div>
+                    <strong>主题系统</strong><br>
+                    <small>5个主题 - 可用</small>
+                </div>
+            </div>
+            <div class="status-item">
+                <div class="status-icon status-ok">✓</div>
+                <div>
+                    <strong>本地存储</strong><br>
+                    <small>浏览器支持 - 就绪</small>
+                </div>
+            </div>
+            <div class="status-item">
+                <div class="status-icon status-info">ℹ</div>
+                <div>
+                    <strong>GitHub部署</strong><br>
+                    <small>准备就绪 - 使用上传工具</small>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 部署选项 -->
+        <div class="grid">
+            <!-- GitHub -->
+            <div class="card">
+                <h3>🐙 GitHub 部署</h3>
+                <p>将项目上传到GitHub，获得在线访问链接</p>
+                <div class="info-box">
+                    <strong>前置条件：</strong><br>
+                    • 需要GitHub账号<br>
+                    • 本地安装Git<br>
+                    • Personal Access Token
+                </div>
+                <div class="links">
+                    <a href="上传到GitHub.bat" class="btn btn-secondary" download>下载上传工具</a>
+                </div>
+            </div>
+            
+            <!-- 在线部署 -->
+            <div class="card">
+                <h3>☁️ 在线部署</h3>
+                <p>部署到云平台，获得公网访问地址</p>
+                <p style="font-size: 14px; margin-top: 10px;">支持的平台：</p>
+                <ul style="margin-left: 20px; font-size: 14px;">
+                    <li>Vercel (推荐)</li>
+                    <li>Netlify</li>
+                    <li>GitHub Pages</li>
+                    <li>阿里云/腾讯云</li>
+                </ul>
+            </div>
+            
+            <!-- 快速启动 -->
+            <div class="card">
+                <h3>⚡ 快速启动</h3>
+                <p>使用启动工具快速访问应用和文档</p>
+                <div class="code">
+启动工具.bat
+                </div>
+                <p style="font-size: 13px; margin-top: 10px;">双击文件打开菜单</p>
+            </div>
+        </div>
+        
+        <!-- GitHub快速设置 -->
+        <div class="status" style="margin-top: 30px;">
+            <h3>🚀 GitHub 快速设置</h3>
+            
+            <h4 style="margin-top: 20px; color: #333; font-size: 16px;">步骤 1: 创建GitHub仓库</h4>
+            <div class="code">
+https://github.com/new
+仓库名: mindmap-pro
+公开: Public
+            </div>
+            
+            <h4 style="margin-top: 20px; color: #333; font-size: 16px;">步骤 2: 生成Personal Access Token</h4>
+            <div class="code">
+https://github.com/settings/tokens
+选择: repo, workflow
+            </div>
+            
+            <h4 style="margin-top: 20px; color: #333; font-size: 16px;">步骤 3: 运行上传工具</h4>
+            <div class="code">
+双击: 上传到GitHub.bat
+输入: GitHub用户名, Token
+            </div>
+            
+            <h4 style="margin-top: 20px; color: #333; font-size: 16px;">步骤 4: 启用GitHub Pages（可选）</h4>
+            <div class="code">
+Settings → Pages
+Branch: main
+Save
+访问: https://你的用户名.github.io/mindmap-pro
+            </div>
+        </div>
+        
+        <!-- 本地命令行上传 -->
+        <div class="status" style="margin-top: 30px;">
+            <h3>💻 命令行上传（高级用户）</h3>
+            
+            <p style="margin: 15px 0; color: #666;">如果你熟悉Git，可以在命令行中执行以下命令：</p>
+            
+            <div class="code">
+# 初始化仓库
+git init
+
+# 添加所有文件
+git add .
+
+# 创建首次提交
+git commit -m "Initial commit: MindFlow Pro with theme system"
+
+# 添加远程仓库
+git remote add origin https://github.com/你的用户名/mindmap-pro.git
+
+# 重命名主分支
+git branch -M main
+
+# 推送到GitHub
+git push -u origin main
+            </div>
+        </div>
+        
+        <!-- 文件清单 -->
+        <div class="status" style="margin-top: 30px;">
+            <h3>📋 文件清单</h3>
+            
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                <tr style="border-bottom: 2px solid #667eea;">
+                    <th style="text-align: left; padding: 10px; color: #667eea;">文件</th>
+                    <th style="text-align: left; padding: 10px; color: #667eea;">说明</th>
+                    <th style="text-align: left; padding: 10px; color: #667eea;">状态</th>
+                </tr>
+                <tr style="border-bottom: 1px solid #f0f0f0;">
+                    <td style="padding: 10px;"><code>mindmap.htm</code></td>
+                    <td style="padding: 10px;">主应用 - 包含5个主题</td>
+                    <td style="padding: 10px;">✅</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #f0f0f0;">
+                    <td style="padding: 10px;"><code>README.html</code></td>
+                    <td style="padding: 10px;">完整说明文档</td>
+                    <td style="padding: 10px;">✅</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #f0f0f0;">
+                    <td style="padding: 10px;"><code>THEME_PREVIEW.html</code></td>
+                    <td style="padding: 10px;">主题视觉预览</td>
+                    <td style="padding: 10px;">✅</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #f0f0f0;">
+                    <td style="padding: 10px;"><code>启动工具.bat</code></td>
+                    <td style="padding: 10px;">快速访问菜单</td>
+                    <td style="padding: 10px;">✅</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #f0f0f0;">
+                    <td style="padding: 10px;"><code>上传到GitHub.bat</code></td>
+                    <td style="padding: 10px;">一键上传工具</td>
+                    <td style="padding: 10px;">✅</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #f0f0f0;">
+                    <td style="padding: 10px;"><code>控制面板.html</code></td>
+                    <td style="padding: 10px;">本控制面板</td>
+                    <td style="padding: 10px;">✅</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- 联系和支持 -->
+        <div class="card" style="margin-top: 30px;">
+            <h3>💬 获取帮助</h3>
+            <p>遇到问题？以下是一些帮助资源：</p>
+            <ul style="margin-left: 20px; line-height: 2; font-size: 14px;">
+                <li>📖 查看README.html中的FAQ部分</li>
+                <li>🐛 在GitHub中报告问题</li>
+                <li>💡 查看技术细节部分了解实现</li>
+                <li>🔍 检查浏览器控制台（F12）了解错误信息</li>
+            </ul>
+        </div>
+        
+        <!-- 页脚 -->
+        <div style="text-align: center; margin-top: 40px; padding: 20px; color: white;">
+            <p>MindFlow Pro © 2025</p>
+            <p style="font-size: 12px; margin-top: 10px;">Made with ❤️</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindFlow Pro - 用户说明书</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f5f7fa;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .toc h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .toc ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .toc li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        .content {
+            padding: 60px 40px;
+        }
+        
+        section {
+            margin-bottom: 80px;
+            scroll-margin-top: 20px;
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 32px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h3 {
+            color: #764ba2;
+            font-size: 22px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        h4 {
+            color: #333;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .step {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .step-num {
+            min-width: 50px;
+            height: 50px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .theme-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .theme-box {
+            padding: 30px;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .theme-business { background: linear-gradient(135deg, #2C3E50 0%, #3498DB 100%); }
+        .theme-fresh { background: linear-gradient(135deg, #1E8449 0%, #27AE60 100%); }
+        .theme-dark { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+        .theme-colorful { background: linear-gradient(135deg, #8E44AD 0%, #E74C3C 100%); }
+        .theme-minimal { background: linear-gradient(135deg, #34495E 0%, #7F8C8D 100%); }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        .info-box strong {
+            color: #667eea;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .faq-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .faq-q {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .faq-a {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 40px;
+            text-align: center;
+            color: #666;
+            border-top: 2px solid #ddd;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .toc ul {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-grid,
+            .theme-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 标题 -->
+        <div class="header">
+            <h1>📚 MindFlow Pro</h1>
+            <p>用户说明书 v1.0</p>
+        </div>
+        
+        <!-- 目录 -->
+        <div class="toc">
+            <h2>📖 目录</h2>
+            <ul>
+                <li><a href="#quick-start">⚡ 5分钟快速开始</a></li>
+                <li><a href="#features">✨ 核心功能</a></li>
+                <li><a href="#themes">🎨 主题系统</a></li>
+                <li><a href="#usage">📖 详细使用指南</a></li>
+                <li><a href="#technical">🔧 技术细节</a></li>
+                <li><a href="#deployment">🚀 部署方案</a></li>
+                <li><a href="#faq">❓ 常见问题</a></li>
+                <li><a href="#support">📞 获取帮助</a></li>
+            </ul>
+        </div>
+        
+        <!-- 内容开始 -->
+        <div class="content">
+            <!-- 快速开始 -->
+            <section id="quick-start">
+                <h2>⚡ 5分钟快速开始</h2>
+                
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <strong>打开应用</strong>
+                        <p>双击 <code>mindmap.htm</code> 或用任何浏览器打开此文件</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <strong>找到主题选择器</strong>
+                        <p>在顶部工具栏右侧，找到"主题"下拉框</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <strong>选择你的主题</strong>
+                        <p>点击下拉框，从5个精选主题中选择最适合的</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <strong>开始工作</strong>
+                        <p>整个UI立即改变配色。你的选择会自动保存！</p>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    💡 <strong>提示：</strong>应用完全离线，无需网络连接。所有数据存储在浏览器本地。
+                </div>
+            </section>
+            
+            <!-- 核心功能 -->
+            <section id="features">
+                <h2>✨ 核心功能</h2>
+                <p>MindFlow Pro 提供完整的思维导图功能，配合强大的主题系统：</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>📝 创建和编辑</h4>
+                        <p>直观的界面，快速创建、编辑、删除导图节点</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📁 导入导出</h4>
+                        <p>支持导入/导出，备份和分享你的导图</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🎨 5个主题</h4>
+                        <p>专业主题选择，满足各种工作场景需求</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>💾 自动保存</h4>
+                        <p>浏览器自动保存，关闭后再打开会恢复</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>⚡ 高性能</h4>
+                        <p>轻量级设计，即使大型导图也快速响应</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔄 智能分析</h4>
+                        <p>支持本地文本分析，快速生成导图结构</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 主题系统 -->
+            <section id="themes">
+                <h2>🎨 主题系统</h2>
+                <p>选择适合你的工作场景的主题，整个应用界面会立即改变配色：</p>
+                
+                <div class="theme-showcase">
+                    <div class="theme-box theme-business">
+                        商务蓝<br>
+                        <small>企业办公</small>
+                    </div>
+                    <div class="theme-box theme-fresh">
+                        清新绿<br>
+                        <small>学习创意</small>
+                    </div>
+                    <div class="theme-box theme-dark">
+                        暗黑模式<br>
+                        <small>夜间工作</small>
+                    </div>
+                    <div class="theme-box theme-colorful">
+                        多彩主题<br>
+                        <small>演示展示</small>
+                    </div>
+                    <div class="theme-box theme-minimal">
+                        极简白<br>
+                        <small>简洁工作</small>
+                    </div>
+                </div>
+                
+                <h3>主题详细说明</h3>
+                
+                <table>
+                    <tr>
+                        <th>主题</th>
+                        <th>适用场景</th>
+                        <th>特点</th>
+                        <th>推荐指数</th>
+                    </tr>
+                    <tr>
+                        <td><strong>商务蓝</strong></td>
+                        <td>企业办公、商务演讲</td>
+                        <td>专业沉稳，增强信任感</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>清新绿</strong></td>
+                        <td>学习、创意工作</td>
+                        <td>生机活力，舒适宜人</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>暗黑模式</strong></td>
+                        <td>夜间工作、长时间使用</td>
+                        <td>保护眼睛，减少疲劳</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>多彩主题</strong></td>
+                        <td>演示、设计作品</td>
+                        <td>视觉冲击，绚丽多彩</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>极简白</strong></td>
+                        <td>专注工作、简洁需求</td>
+                        <td>简洁高效，一尘不染</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                </table>
+            </section>
+            
+            <!-- 详细使用 -->
+            <section id="usage">
+                <h2>📖 详细使用指南</h2>
+                
+                <h3>创建新导图</h3>
+                <ol>
+                    <li>打开应用后，点击"新建"按钮</li>
+                    <li>输入中心主题名称</li>
+                    <li>点击"创建"完成初始化</li>
+                </ol>
+                
+                <h3>编辑导图</h3>
+                <ol>
+                    <li><strong>添加子节点：</strong>选中节点，按 <code>Tab</code> 或点击"添加"按钮</li>
+                    <li><strong>编辑节点：</strong>双击节点文本进行编辑</li>
+                    <li><strong>删除节点：</strong>选中节点，按 <code>Delete</code> 或点击"删除"</li>
+                    <li><strong>移动节点：</strong>拖拽节点到新位置</li>
+                </ol>
+                
+                <h3>导入和导出</h3>
+                
+                <h4>导出为文件</h4>
+                <ol>
+                    <li>点击"导出"按钮</li>
+                    <li>选择格式（JSON/图片/SVG）</li>
+                    <li>文件会自动下载到你的计算机</li>
+                </ol>
+                
+                <h4>导入现有文件</h4>
+                <ol>
+                    <li>点击"导入"按钮</li>
+                    <li>选择一个之前导出的导图文件</li>
+                    <li>导图会立即加载到编辑器</li>
+                </ol>
+                
+                <h3>文本分析生成</h3>
+                <p>可以从文本快速生成导图结构：</p>
+                <ol>
+                    <li>点击"智能分析"或"生成"按钮</li>
+                    <li>粘贴或输入你的文本内容</li>
+                    <li>应用会自动分析并生成导图结构</li>
+                    <li>你可以进一步编辑和调整</li>
+                </ol>
+                
+                <div class="info-box">
+                    💡 <strong>支持的文本格式：</strong>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>纯文本（会进行智能分析）</li>
+                        <li>列表形式（前缀 •、-、* 等）</li>
+                        <li>分级结构（缩进表示层级）</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- 技术细节 -->
+            <section id="technical">
+                <h2>🔧 技术细节</h2>
+                
+                <h3>系统架构</h3>
+                <ul>
+                    <li><strong>前端框架：</strong>纯HTML/CSS/JavaScript（无依赖）</li>
+                    <li><strong>存储方案：</strong>localStorage（浏览器本地存储）</li>
+                    <li><strong>兼容性：</strong>所有现代浏览器（Chrome、Firefox、Safari、Edge）</li>
+                </ul>
+                
+                <h3>主题实现</h3>
+                <p>主题通过CSS变量和类选择器实现，切换延迟 &lt;100ms：</p>
+                
+                <div class="code-block">
+// CSS变量示例
+body.theme-business {
+  --primary-color: #2C3E50;
+  --accent-color: #3498DB;
+  --text-color: #2C3E50;
+}
+
+// JavaScript切换
+mindMap.setTheme('business');
+                </div>
+                
+                <h3>数据存储</h3>
+                <ul>
+                    <li>所有导图数据存储在浏览器的 localStorage 中</li>
+                    <li>用户主题选择也被自动保存</li>
+                    <li>关闭浏览器后数据不会丢失</li>
+                    <li>清除浏览器缓存会导致数据丢失（可通过导出备份）</li>
+                </ul>
+                
+                <h3>浏览器兼容性</h3>
+                <table>
+                    <tr>
+                        <th>浏览器</th>
+                        <th>最低版本</th>
+                        <th>支持状态</th>
+                    </tr>
+                    <tr>
+                        <td>Google Chrome</td>
+                        <td>90+</td>
+                        <td>✅ 完全支持</td>
+                    </tr>
+                    <tr>
+                        <td>Mozilla Firefox</td>
+                        <td>88+</td>
+                        <td>✅ 完全支持</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Safari</td>
+                        <td>14+</td>
+                        <td>✅ 完全支持</td>
+                    </tr>
+                    <tr>
+                        <td>Microsoft Edge</td>
+                        <td>90+</td>
+                        <td>✅ 完全支持</td>
+                    </tr>
+                    <tr>
+                        <td>Internet Explorer</td>
+                        <td>任何</td>
+                        <td>❌ 不支持</td>
+                    </tr>
+                </table>
+            </section>
+            
+            <!-- 部署方案 -->
+            <section id="deployment">
+                <h2>🚀 部署方案</h2>
+                
+                <h3>本地使用（最简单）</h3>
+                <p>直接打开 <code>mindmap.htm</code> 即可使用，无需任何配置：</p>
+                <div class="code-block">
+# Windows
+双击 mindmap.htm
+
+# 或在浏览器中打开
+file:///C:/Users/Juan/mindmap-pro/mindmap.htm
+                </div>
+                
+                <h3>在线部署</h3>
+                
+                <h4>方案1：GitHub Pages（推荐）</h4>
+                <ol>
+                    <li>创建 GitHub 账号并新建仓库 <code>mindmap-pro</code></li>
+                    <li>上传所有文件到仓库</li>
+                    <li>在仓库 Settings → Pages，选择 main 分支</li>
+                    <li>稍等几分钟，访问 <code>https://你的用户名.github.io/mindmap-pro</code></li>
+                </ol>
+                
+                <h4>方案2：Vercel（快速）</h4>
+                <ol>
+                    <li>访问 <a href="https://vercel.com" target="_blank">vercel.com</a></li>
+                    <li>连接你的 GitHub 仓库</li>
+                    <li>自动部署完成</li>
+                </ol>
+                
+                <h4>方案3：Netlify（便捷）</h4>
+                <ol>
+                    <li>访问 <a href="https://netlify.com" target="_blank">netlify.com</a></li>
+                    <li>拖拽项目文件夹或连接 GitHub</li>
+                    <li>自动生成访问地址</li>
+                </ol>
+            </section>
+            
+            <!-- FAQ -->
+            <section id="faq">
+                <h2>❓ 常见问题</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Q: 主题选择会影响我的导图内容吗？</div>
+                    <div class="faq-a">A: 完全不会。主题只改变应用的视觉样式，你的所有导图数据完全不受影响。</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Q: 我的主题选择会被保存吗？</div>
+                    <div class="faq-a">A: 是的。主题选择会自动保存到浏览器，下次打开应用时会自动应用。</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Q: 我可以随时改变主题吗？</div>
+                    <div class="faq-a">A: 当然可以。没有任何限制，随时可以在主题下拉框中切换。</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Q: 暗黑模式真的能保护眼睛吗？</div>
+                    <div class="faq-a">A: 暗黑模式可以减少长时间使用时的眼睛疲劳。但最重要的还是定时休息和保持正确距离。</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Q: 应用需要网络连接吗？</div>
+                    <div class="faq-a">A: 完全不需要。所有功能都在本地运行，离线也能正常使用。</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Q: 我的数据会被上传到服务器吗？</div>
+                    <div class="faq-a">A: 不会。所有数据都存储在你的浏览器本地，我们无法访问任何你的数据。</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Q: 我可以备份我的导图吗？</div>
+                    <div class="faq-a">A: 可以。使用"导出"功能可以将导图保存为 JSON 文件。导入时再打开即可恢复。</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Q: 应用崩溃或丢失数据怎么办？</div>
+                    <div class="faq-a">A: 定期导出你的导图作为备份。即使浏览器出现问题，导出的文件仍然安全。</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Q: 我用的是什么浏览器？</div>
+                    <div class="faq-a">A: 推荐使用 Chrome、Firefox、Safari 或 Edge 最新版本。不支持 Internet Explorer。</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-q">Q: 页面打不开怎么办？</div>
+                    <div class="faq-a">A: 
+                        <ul style="margin: 10px 0 0 20px;">
+                            <li>尝试用其他浏览器打开</li>
+                            <li>清除浏览器缓存重新加载</li>
+                            <li>在地址栏手动输入文件路径</li>
+                            <li>检查文件是否完整</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 获取帮助 -->
+            <section id="support">
+                <h2>📞 获取帮助</h2>
+                
+                <h3>遇到问题？</h3>
+                <p>以下是获取帮助的方式：</p>
+                
+                <ol>
+                    <li><strong>查看本文档：</strong>使用浏览器的"查找"功能（Ctrl+F）搜索相关关键词</li>
+                    <li><strong>查看FAQ部分：</strong>90%的问题都在常见问题中有答案</li>
+                    <li><strong>重启应用：</strong>关闭浏览器标签页，重新打开应用</li>
+                    <li><strong>清除缓存：</strong>如果页面显示异常，尝试清除浏览器缓存（Ctrl+Shift+Delete）</li>
+                </ol>
+                
+                <h3>仍需帮助？</h3>
+                <p>访问项目的 GitHub 仓库提交 Issue：</p>
+                <ul>
+                    <li>🐛 <a href="https://github.com/yourusername/mindmap-pro/issues" target="_blank">Bug Report</a></li>
+                    <li>💬 <a href="https://github.com/yourusername/mindmap-pro/discussions" target="_blank">Discussions</a></li>
+                    <li>⭐ <a href="https://github.com/yourusername/mindmap-pro" target="_blank">Give us a Star!</a></li>
+                </ul>
+                
+                <h3>快速链接</h3>
+                <ul>
+                    <li>📂 <a href="mindmap.htm">打开应用</a></li>
+                    <li>🎨 <a href="THEME_PREVIEW.html">主题预览</a></li>
+                    <li>🎛️ <a href="控制面板.html">控制面板</a></li>
+                    <li>⚡ <a href="快速参考.html">快速参考</a></li>
+                </ul>
+            </section>
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="footer">
+            <p><strong>MindFlow Pro © 2025</strong></p>
+            <p style="margin-top: 15px; font-size: 14px;">
+                Made with ❤️ for professionals, students, and creative thinkers
+            </p>
+            <p style="margin-top: 10px; font-size: 12px; color: #999;">
+                Version 1.0 | All features offline-first | 100% locally stored
+            </p>
+        </div>
+    </div>
+</body>
+</html>
